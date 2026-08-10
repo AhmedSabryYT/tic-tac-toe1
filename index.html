@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #f5f5f5;
@@ -97,7 +100,7 @@
         }
         
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Merriweather', serif;
             text-align: center;
             background: var(--bg-color);
             margin: 0;
@@ -107,6 +110,7 @@
         }
         h1 {
             color: var(--text-color);
+            font-weight: 700;
         }
         .menu {
             margin: 20px 0;
@@ -114,12 +118,14 @@
         button {
             background: var(--button-bg);
             color: white;
-            border: none;
+            border: 2px solid black;
             padding: 12px 24px;
             margin: 5px;
             border-radius: 5px;
             font-size: 16px;
             cursor: pointer;
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
         }
         button:hover {
             background: var(--button-hover);
@@ -145,6 +151,7 @@
             cursor: pointer;
             border-radius: 5px;
             color: var(--text-color);
+            font-family: 'Merriweather', serif;
         }
         .cell:hover {
             background: var(--cell-hover);
@@ -153,6 +160,7 @@
             font-size: 20px;
             margin: 15px 0;
             min-height: 30px;
+            font-family: 'Merriweather', serif;
         }
         .mode-select {
             margin: 20px 0;
@@ -161,22 +169,23 @@
             padding: 10px;
             font-size: 16px;
             border-radius: 5px;
-            border: 1px solid var(--select-border);
+            border: 2px solid black;
             background: var(--select-bg);
             color: var(--text-color);
+            font-family: 'Merriweather', serif;
         }
         
-        /* Theme Switcher */
+        /* Theme Switcher - TOP RIGHT */
         .theme-switcher {
             position: fixed;
-            bottom: 20px;
+            top: 20px;
             right: 20px;
             z-index: 1000;
         }
         .theme-switcher button {
             background: var(--button-bg);
             color: white;
-            border: none;
+            border: 2px solid black;
             padding: 8px 12px;
             margin: 2px;
             border-radius: 5px;
@@ -184,6 +193,8 @@
             cursor: pointer;
             display: block;
             width: 100%;
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
         }
         .theme-switcher button:hover {
             background: var(--button-hover);
@@ -191,10 +202,10 @@
         .theme-menu {
             display: none;
             position: absolute;
-            bottom: 40px;
+            top: 40px;
             right: 0;
             background: var(--cell-bg);
-            border: 1px solid var(--cell-border);
+            border: 2px solid black;
             border-radius: 5px;
             padding: 5px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
@@ -211,6 +222,7 @@
             color: var(--text-color);
             width: 100%;
             text-align: left;
+            font-family: 'Merriweather', serif;
         }
         .theme-option:hover {
             background: var(--cell-hover);
@@ -222,6 +234,20 @@
     </style>
 </head>
 <body>
+    <!-- Theme Switcher - TOP RIGHT -->
+    <div class="theme-switcher">
+        <button class="settings-btn" id="themeToggle">⚙️ Theme</button>
+        <div class="theme-menu" id="themeMenu">
+            <button class="theme-option" data-theme="light">☀️ Light</button>
+            <button class="theme-option" data-theme="dark">🌙 Dark</button>
+            <button class="theme-option" data-theme="matcha">🍵 Matcha</button>
+            <button class="theme-option" data-theme="ocean">🌊 Ocean</button>
+            <button class="theme-option" data-theme="yellow">💛 Yellow</button>
+            <button class="theme-option" data-theme="red">❤️ Red</button>
+            <button class="theme-option" data-theme="purple">💜 Purple</button>
+        </div>
+    </div>
+
     <h1>Tic Tac Toe</h1>
 
     <div class="mode-select">
@@ -253,20 +279,6 @@
     <div class="menu">
         <button id="newGame">New Game</button>
         <button id="reset">Reset</button>
-    </div>
-
-    <!-- Theme Switcher -->
-    <div class="theme-switcher">
-        <button class="settings-btn" id="themeToggle">⚙️ Theme</button>
-        <div class="theme-menu" id="themeMenu">
-            <button class="theme-option" data-theme="light">☀️ Light</button>
-            <button class="theme-option" data-theme="dark">🌙 Dark</button>
-            <button class="theme-option" data-theme="matcha">🍵 Matcha</button>
-            <button class="theme-option" data-theme="ocean">🌊 Ocean</button>
-            <button class="theme-option" data-theme="yellow">💛 Yellow</button>
-            <button class="theme-option" data-theme="red">❤️ Red</button>
-            <button class="theme-option" data-theme="purple">💜 Purple</button>
-        </div>
     </div>
 
     <script>
